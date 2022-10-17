@@ -35,26 +35,55 @@ namespace calc_unik
 
         private void oblicz_button_Click(object sender, EventArgs e)
         {
+            
 
             if (comboBox1.Text == "Suma")
             {
-                if(liczba1_textBox.Text!="" && liczba2_textBox.Text != "")
-                    wynik_textBox.Text = Convert.ToString(Convert.ToInt16(liczba1_textBox.Text) + Convert.ToInt16(liczba2_textBox.Text));
+                if (liczba1_textBox.Text != "" && liczba2_textBox.Text != "")
+                    if (Int32.TryParse(liczba1_textBox.Text, out int value) && Int32.TryParse(liczba1_textBox.Text, out int value2))
+                    {
+                        wynik_textBox.Text = Convert.ToString(value + value2);
+                    }
+                    else
+                    {
+                        MessageBox.Show("w textboxach nie so same liczby", "error");
+                    }
             }
             else if(comboBox1.Text == "Różnica")
             {
                 if (liczba1_textBox.Text != "" && liczba2_textBox.Text != "")
-                    wynik_textBox.Text = Convert.ToString(Convert.ToInt16(liczba1_textBox.Text) - Convert.ToInt16(liczba2_textBox.Text));
+                    if (Int32.TryParse(liczba1_textBox.Text, out int value) && Int32.TryParse(liczba1_textBox.Text, out int value2))
+                    {
+                        wynik_textBox.Text = Convert.ToString(value - value2);
+                    }
+                    else
+                    {
+                        MessageBox.Show("w textboxach nie so same liczby", "error");
+                    }
             }
             else if (comboBox1.Text == "Iloraz")
             {
                 if (liczba1_textBox.Text != "" && liczba2_textBox.Text != "")
-                    wynik_textBox.Text = Convert.ToString(Convert.ToInt16(liczba1_textBox.Text) * Convert.ToInt16(liczba2_textBox.Text));
+                    if (Int32.TryParse(liczba1_textBox.Text, out int value) && Int32.TryParse(liczba1_textBox.Text, out int value2))
+                    {
+                        wynik_textBox.Text = Convert.ToString(value * value2);
+                    }
+                    else
+                    {
+                        MessageBox.Show("w textboxach nie so same liczby", "error");
+                    }
             }
             else if (comboBox1.Text == "Iloczyn")
             {
                 if (liczba1_textBox.Text != "" && liczba2_textBox.Text != "")
-                    wynik_textBox.Text = Convert.ToString(Convert.ToInt16(liczba1_textBox.Text) / Convert.ToInt16(liczba2_textBox.Text));
+                    if (Int32.TryParse(liczba1_textBox.Text, out int value) && Int32.TryParse(liczba1_textBox.Text, out int value2))
+                    {
+                        wynik_textBox.Text = Convert.ToString(value / value2);
+                    }
+                    else
+                    {
+                        MessageBox.Show("w textboxach nie so same liczby", "error");
+                    }
             }
         }
 
@@ -67,7 +96,7 @@ namespace calc_unik
 
         private void zakoncz_button_Click(object sender, EventArgs e)
         {
-            zakoncz_button.Visible = false;
+            this.Close();
         }
 
         private void oblicz_button_MouseMove(object sender, MouseEventArgs e)
@@ -80,6 +109,18 @@ namespace calc_unik
         {
             oblicz_button.Size = new Size(75, 23);
             oblicz_button.Text = "oblicz";
+        }
+
+        private void liczba2_textBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                oblicz_button_Click(this, new EventArgs());
+        }
+
+        private void liczba1_textBox_KeyDown(object sender, KeyEventArgs e)
+        {
+                if (e.KeyCode == Keys.Enter)
+                    oblicz_button_Click(this, new EventArgs());
         }
     }
 }
