@@ -32,3 +32,4 @@ D:\programs\Desktop prog\projects\projekts c#\Programowanie w środowiskach graf
 D:\programs\Desktop prog\projects\projekts c#\Programowanie w środowiskach graficznych\lab_3\calc_unik\calc_unik\bin\Debug\net6.0-windows\calc_unik.pdb
 D:\programs\Desktop prog\projects\projekts c#\Programowanie w środowiskach graficznych\lab_3\calc_unik\calc_unik\obj\Debug\net6.0-windows\calc_unik.genruntimeconfig.cache
 D:\programs\Desktop prog\projects\projekts c#\Programowanie w środowiskach graficznych\lab_3\calc_unik\calc_unik\obj\Debug\net6.0-windows\ref\calc_unik.dll
+D:\programs\Desktop prog\projects\projekts c#\Programowanie w środowiskach graficznych\lab_3\calc_unik\calc_unik\obj\Debug\net6.0-windows\calc_unik.Properties.Resources.resources
