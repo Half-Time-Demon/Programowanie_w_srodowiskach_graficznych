@@ -11,6 +11,9 @@
             InitializeComponent();
             zakończ_ToolStripMenuItem.Image = Image.FromFile(ImgPath);
             datarezerwacji_dateTimePicker.MinDate = DateTime.Today;
+            TabControl.SelectedTab.BackColor = Color.Blue;
+            wyczyść_button.Enabled = false;
+            oblicz_button.Enabled = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -32,7 +35,7 @@
 
         private void Liczba2_textBox_TextChanged(object sender, EventArgs e)
         {
-
+            checked_button();
         }
 
         private void Wynik2_label_Click(object sender, EventArgs e)
@@ -250,37 +253,105 @@
         private void Abnawlenij_tekstOut_richTextBox()
         {
             tekstOut_richTextBox.Text = string.Empty;
-            if(tekstIn_richTextBox.Text != string.Empty)
-            {
-                tekstOut_richTextBox.Text += tekstIn_richTextBox.Text+"\n";
-            }
 
+            tekstOut_richTextBox.Text += "Student: ";
             if (student_comboBox.Text != string.Empty)
             {
                 tekstOut_richTextBox.Text += student_comboBox.Text + "\n";
             }
 
+            tekstOut_richTextBox.Text += "Data: ";
             if (datarezerwacji_dateTimePicker.Text != string.Empty)
             {
                 tekstOut_richTextBox.Text += datarezerwacji_dateTimePicker.Text + "\n";
             }
 
+            tekstOut_richTextBox.Text += "Semestr: ";
             if (studia_treeView.SelectedNode != null)
             {
                 if(studia_treeView.TopNode.Text != studia_treeView.SelectedNode.Text)
                 {
-                    tekstOut_richTextBox.Text += studia_treeView.TopNode.Text + ": " + studia_treeView.SelectedNode.Text + "\n";
+                    tekstOut_richTextBox.Text += studia_treeView.TopNode.Text + "Grupa: " + studia_treeView.SelectedNode.Text + "\n";
                 }
                 else
                 {
                     tekstOut_richTextBox.Text += studia_treeView.SelectedNode.Text + "\n";
                 }
             }
+
+            if (przedmiot1_checkbox.Checked)
+            {
+                tekstOut_richTextBox.Text += "Przedmiot 1: Tak \n";
+            }
+            else
+            {
+                tekstOut_richTextBox.Text += "Przedmiot 1: Nie \n";
+            }
+
+            if (przedmiot2_checkbox.Checked)
+            {
+                tekstOut_richTextBox.Text += "Przedmiot 2: Tak \n";
+            }
+            else
+            {
+                tekstOut_richTextBox.Text += "Przedmiot 2: Nie \n";
+            }
+
+            tekstOut_richTextBox.Text += "Opis: ";
+            if (tekstIn_richTextBox.Text != string.Empty)
+            {
+                tekstOut_richTextBox.Text += tekstIn_richTextBox.Text + "\n";
+            }
         }
 
         private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int i = 2;
             Abnawlenij_tekstOut_richTextBox();
+        }
+
+        private void TabControl_Selected(object sender, TabControlEventArgs e)
+        {
+            TabControl.SelectedTab.BackColor = Color.Blue;
+        }
+
+        private void student_comboBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            string s = student_comboBox.Text;
+
+            if(e.KeyCode == Keys.Enter)
+            {
+                if (!student_comboBox.Items.Contains(s))
+                {
+                    student_comboBox.Items.Add(s);
+                }
+            }
+        }
+
+        private void checked_button()
+        {
+            if (liczba1_textBox.Text != string.Empty && liczba2_textBox.Text != string.Empty) {
+                if (Int32.TryParse(liczba1_textBox.Text, out int value) && Int32.TryParse(liczba2_textBox.Text, out int value2))
+                {   
+                    oblicz_button.Enabled = true;
+                }
+                else
+                {
+                   oblicz_button.Enabled = false;
+                }
+            }
+            else
+            {
+                oblicz_button.Enabled = false;
+                wyczyść_button.Enabled = false;
+            }
+            if(liczba1_textBox.Text != string.Empty || liczba2_textBox.Text != string.Empty)
+                wyczyść_button.Enabled = true;
+        }
+
+        private void liczba1_textBox_TextChanged(object sender, EventArgs e)
+        {
+            checked_button();
         }
     }
 }
