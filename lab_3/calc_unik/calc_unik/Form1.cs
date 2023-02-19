@@ -246,5 +246,34 @@
 
             tekstOut_richTextBox.Text = tmp_txt;
         }
+
+        private void Abnawlenij_tekstOut_richTextBox()
+        {
+            tekstOut_richTextBox.Text = string.Empty;
+            if(tekstIn_richTextBox.Text != string.Empty)
+            {
+                tekstOut_richTextBox.Text += tekstIn_richTextBox.Text+"\n";
+            }
+
+            if (student_comboBox.Text != string.Empty)
+            {
+                tekstOut_richTextBox.Text += student_comboBox.Text + "\n";
+            }
+
+            if (datarezerwacji_dateTimePicker.Text != string.Empty)
+            {
+                tekstOut_richTextBox.Text += datarezerwacji_dateTimePicker.Text + "\n";
+            }
+
+            if (studia_treeView.SelectedNode != null)
+            {
+                tekstOut_richTextBox.Text += studia_treeView.TopNode.Text +": "+ studia_treeView.SelectedNode.Text + "\n";
+            }
+        }
+
+        private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Abnawlenij_tekstOut_richTextBox();
+        }
     }
 }

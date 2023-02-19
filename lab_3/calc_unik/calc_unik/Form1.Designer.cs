@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("grupa 1");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("grupa 2");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("rok I", new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("grupa 1");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("grupa 2");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("rok II", new System.Windows.Forms.TreeNode[] {
-            treeNode10,
-            treeNode11});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("grupa 1");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("grupa 2");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("rok I", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("grupa 1");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("grupa 2");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("rok II", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5});
             this.liczba1_label = new System.Windows.Forms.Label();
             this.liczba2_label = new System.Windows.Forms.Label();
             this.liczba1_textBox = new System.Windows.Forms.TextBox();
@@ -282,6 +282,7 @@
             this.TabControl.SelectedIndex = 0;
             this.TabControl.Size = new System.Drawing.Size(200, 206);
             this.TabControl.TabIndex = 12;
+            this.TabControl.SelectedIndexChanged += new System.EventHandler(this.TabControl_SelectedIndexChanged);
             // 
             // strona1_tabPage
             // 
@@ -319,21 +320,21 @@
             // 
             this.studia_treeView.Location = new System.Drawing.Point(10, 69);
             this.studia_treeView.Name = "studia_treeView";
-            treeNode7.Name = "grupa_1_1";
-            treeNode7.Text = "grupa 1";
-            treeNode8.Name = "grupa_1_2";
-            treeNode8.Text = "grupa 2";
-            treeNode9.Name = "rok_1";
-            treeNode9.Text = "rok I";
-            treeNode10.Name = "grupa_2_1";
-            treeNode10.Text = "grupa 1";
-            treeNode11.Name = "grupa_2_2";
-            treeNode11.Text = "grupa 2";
-            treeNode12.Name = "rok_2";
-            treeNode12.Text = "rok II";
+            treeNode1.Name = "grupa_1_1";
+            treeNode1.Text = "grupa 1";
+            treeNode2.Name = "grupa_1_2";
+            treeNode2.Text = "grupa 2";
+            treeNode3.Name = "rok_1";
+            treeNode3.Text = "rok I";
+            treeNode4.Name = "grupa_2_1";
+            treeNode4.Text = "grupa 1";
+            treeNode5.Name = "grupa_2_2";
+            treeNode5.Text = "grupa 2";
+            treeNode6.Name = "rok_2";
+            treeNode6.Text = "rok II";
             this.studia_treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode12});
+            treeNode3,
+            treeNode6});
             this.studia_treeView.Size = new System.Drawing.Size(173, 97);
             this.studia_treeView.TabIndex = 2;
             // 
